@@ -100,6 +100,7 @@ test_srcs := \
 	madvise.c \
 	mkdir.c \
 	msg-ring.c \
+	msgsend_recv.c \
 	multicqes_drain.c \
 	nop-all-sizes.c \
 	nop.c \

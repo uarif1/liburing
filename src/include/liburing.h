@@ -422,6 +422,22 @@ static inline void io_uring_prep_sendmsg(struct io_uring_sqe *sqe, int fd,
 	sqe->msg_flags = flags;
 }
 
+static inline void io_uring_prep_msgsnd(struct io_uring_sqe *sqe, int qid,
+					 const void *msg, const size_t msg_size,
+					 unsigned flags)
+{
+	io_uring_prep_rw(IORING_OP_MSGSND, sqe, qid, msg, msg_size, 0);
+	sqe->msg_flags = flags;
+}
+
+static inline void io_uring_prep_msgrcv(struct io_uring_sqe *sqe, int qid,
+					 void *msg, const size_t msg_size, const long msg_type,
+					 unsigned flags)
+{
+	io_uring_prep_rw(IORING_OP_MSGRCV, sqe, qid, msg, msg_size, msg_type);
+	sqe->msg_flags = flags;
+}
+
 static inline unsigned __io_uring_prep_poll_mask(unsigned poll_mask)
 {
 #if __BYTE_ORDER == __BIG_ENDIAN

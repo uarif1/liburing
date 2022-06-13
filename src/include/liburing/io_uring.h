@@ -189,6 +189,8 @@ enum io_uring_op {
 	IORING_OP_GETXATTR,
 	IORING_OP_SOCKET,
 	IORING_OP_URING_CMD,
+	IORING_OP_MSGSND,
+	IORING_OP_MSGRCV,
 
 	/* this goes last, obviously */
 	IORING_OP_LAST,
